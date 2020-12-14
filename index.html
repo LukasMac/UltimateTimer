@@ -116,6 +116,7 @@
       </button>
     </div>
   </body>
+  <script src="./audioPlayer.js"></script>
   <script>
     //what needs to be fixed
     /*
@@ -186,6 +187,18 @@
     const stageSoundRecovery = new Audio(
       "https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/recovery.mp3"
     );
+
+    const playAudio = audioPlayer({
+      beep: 'https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/beep.mp3',
+      stageSwitch: 'https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/stage-switch.mp3',
+      stageSoundGetReady: "https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/get-ready.mp3",
+      stageSoundExercise:
+        "https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/exercise.mp3",
+      stageSoundRest:
+        "https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/rest.mp3",
+      stageSoundRecovery:
+        "https://raw.githubusercontent.com/Mundal1994/UltimateTimer/main/recovery.mp3",
+    });
 
     //programs
     const programs = [
@@ -373,9 +386,6 @@
           (i <= 3 && arr[index].duration > 3) ||
           (arr[index].duration <= 3 && i <= arr[index].duration - 1)
         ) {
-          console.log("bip", beepSound.duration);
-          beepSound.pause();
-          beepSound.currentTime = 0;
           beepSound.play();
         }
 
@@ -638,5 +648,4 @@
     programsSelect.addEventListener("change", programSelectChange);
   </script>
   <script src="./wakeLock.js"></script>
-  <script src="./lowlag.js"></script>
 </html>
